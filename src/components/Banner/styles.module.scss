@@ -1,0 +1,12 @@
+.container {
+  background-image: url('../../assets/images/bg-banner.jpg');
+  min-height: 750px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}

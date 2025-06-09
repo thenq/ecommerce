@@ -1,0 +1,6 @@
+@use '@/assets/styles/mixins.module.scss' as *;
+@use '@/assets/styles/variables.module.scss' as variables;
+
+.btn {
+  @include btn(100px, 50px, variables.$white_color, 10px);
+}

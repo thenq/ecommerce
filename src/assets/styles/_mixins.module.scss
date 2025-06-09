@@ -1,3 +1,26 @@
+// @use './variables.module' as variables;
+
 @mixin radius_common ($radius: 10px) {
   border-radius: $radius;
+}
+
+@mixin btn($w, $h, $c, $r) {
+  width: $w;
+  height: $h;
+  background-color: $c;
+  @include radius_common($r);
+}
+
+@mixin btn_icon($w: 30px, $h: 30px, $c: #fff, $r: 5px) {
+  width: $w;
+  height: $h;
+  background-color: $c;
+  @include radius_common($r);
+}
+
+@mixin flex_box_custom($align: center, $justify: center, $gap: 0px) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
 }

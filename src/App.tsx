@@ -1,16 +1,16 @@
 import '@/App.css';
 import Header from '@components/Header/Header';
-import MainLayout from '@/components/Layout/Layout';
-import Footer from '@/components/Footer/Footer';
+import Banner from '@/components/Banner/Banner';
+import HomePage from '@/components/HomePage/HomePage';
 
 function App() {
   return (
     <>
-      <MainLayout>
-        <Header />
+      <HomePage />
+      {/* <MainLayout>
         Content
         <Footer />
-      </MainLayout>
+      </MainLayout> */}
     </>
   );
 }

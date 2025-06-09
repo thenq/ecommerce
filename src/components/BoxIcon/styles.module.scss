@@ -1,0 +1,10 @@
+@use '@assets/styles/mixins.module.scss' as *;
+@use '@assets/styles/variables.module.scss' as variables;
+
+.boxIcon {
+  @include radius_common(50%);
+  @include flex_box_custom(center, center, 0px);
+  background-color: variables.$primary_color;
+  width: 26px;
+  height: 26px;
+}
