@@ -1,8 +1,11 @@
+import { useToastContext } from '@/contexts';
 import InputForm from '@/libs/Input/InputForm';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 function Login() {
+  const { toast } = useToastContext();
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -22,7 +25,9 @@ function Login() {
       <InputForm id='email' type='text' label='Username' isRequired formik={formik} />
       <InputForm id='password' type='password' label='Password' isRequired formik={formik} />
 
-      <button type='submit'>Login</button>
+      <button type='submit' onClick={() => toast.success('Login successfully')}>
+        Login
+      </button>
     </form>
   );
 }
