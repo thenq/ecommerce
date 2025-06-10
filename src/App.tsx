@@ -1,17 +1,22 @@
 import '@/App.css';
-import Header from '@components/Header/Header';
-import Banner from '@/components/Banner/Banner';
-import HomePage from '@/components/HomePage/HomePage';
+import SideBar from '@/components/SideBar';
+import { SideBarProvider } from '@/contexts';
+import { createAppRouter } from '@/routers';
+import { Suspense } from 'react';
+import { RouterProvider } from 'react-router-dom';
+
+const isAuthenticated = true;
+
+const router = createAppRouter(isAuthenticated);
 
 function App() {
   return (
-    <>
-      <HomePage />
-      {/* <MainLayout>
-        Content
-        <Footer />
-      </MainLayout> */}
-    </>
+    <Suspense fallback={<div>Loading...</div>}>
+      <SideBarProvider>
+        <SideBar />
+        <RouterProvider router={router} />
+      </SideBarProvider>
+    </Suspense>
   );
 }
 

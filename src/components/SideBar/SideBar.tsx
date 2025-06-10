@@ -1,23 +1,32 @@
-import { useState } from 'react';
 import styles from './styles.module.scss';
+import { useSidebarContext } from '@/contexts';
+import classNames from 'classnames';
+import { IoCloseSharp } from 'react-icons/io5';
+import { sidebar } from '@/constants/sidebar';
+import Login from '@/components/Login/Login';
 
-interface SideBarProps {
-  children: React.ReactNode;
-}
+export default function SideBar() {
+  const { container, overlay, sideBar, slideSideBar, close, content } = styles;
+  const { isOpen, setIsOpen, sidebarType } = useSidebarContext();
 
-export default function SideBar({ children }: SideBarProps) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleClick = () => {
-    setIsOpen(!isOpen);
+  const handleGenerateContent = () => {
+    switch (sidebarType) {
+      case sidebar.LOGIN:
+        return <Login />;
+      default:
+        break;
+    }
   };
 
   return (
-    <aside className={`${styles.sideBar} ${isOpen ? styles.open : styles.close}`}>
-      <button type='button' className={styles.toggle} onClick={handleClick}>
-        x
-      </button>
-      {isOpen && children}
-    </aside>
+    <div className={container}>
+      <div className={classNames({ [overlay]: isOpen })} onClick={() => setIsOpen(false)}></div>
+      <div className={classNames(sideBar, { [slideSideBar]: isOpen })}>
+        <div className={close} onClick={() => setIsOpen(false)}>
+          <IoCloseSharp />
+        </div>
+        <div className={content}>{handleGenerateContent()}</div>
+      </div>
+    </div>
   );
 }

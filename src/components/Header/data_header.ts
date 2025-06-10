@@ -4,6 +4,7 @@ import ytIcon from '@/assets/icons/youtube.svg';
 import cartIcon from '@/assets/icons/cart.svg';
 import heartIcon from '@/assets/icons/heart.svg';
 import reloadIcon from '@/assets/icons/reload.svg';
+import { sidebar } from '@/constants/sidebar';
 
 const leftIcons = [
   {
@@ -57,7 +58,7 @@ const menuItems = [
     href: '/',
   },
   {
-    content: 'Home',
+    content: sidebar.LOGIN,
     href: '/',
   },
 ];

@@ -1,9 +1,12 @@
-import styles from './styles.module.scss';
 import BoxIcon from '@/components/BoxIcon/BoxIcon';
-import { leftIcons, menuItems, rightIcons } from './data_header';
 import MenuItem from '@/components/Header/Menu/Menuitem';
+import { useSidebarContext } from '@/contexts';
+import { leftIcons, menuItems, rightIcons } from './data_header';
+import styles from './styles.module.scss';
 
 function Header() {
+  const { setIsOpen } = useSidebarContext();
+
   return (
     <div className={styles.containerHeader}>
       <div className={styles.flexInline}>
@@ -29,7 +32,9 @@ function Header() {
 
         <div className={styles.containerBoxIcon}>
           {rightIcons.map((item, index) => (
-            <BoxIcon src={item.src} href={item.href} key={index} />
+            <button onClick={() => setIsOpen(true)} key={index}>
+              <BoxIcon src={item.src} href={item.href} key={index} />
+            </button>
           ))}
         </div>
       </div>
